@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @users = User.all # Get's all the Users in our database and assigns it the the instance variable @user.
   end
 
+  def show
+    @user = User.find(params[:id]) # Query for the user with the id that is in params
+  end
+
+
   def new
     @user = User.new #Creates an empty user object.
   end
@@ -18,10 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(params[:id]) # Query for the user with the id that is in params
-  end
-
+  
   private
 
   def user_params
